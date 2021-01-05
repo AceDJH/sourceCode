@@ -1,9 +1,12 @@
 package com.djh.config;
 
 import com.djh.bean.Color;
+import com.djh.bean.ColorFactoryBean;
 import com.djh.bean.Person;
 import com.djh.bean.Red;
 import com.djh.condition.LinuxCondition;
+import com.djh.condition.MyImportBeanDefinitionRegistrar;
+import com.djh.condition.MyImportSelector;
 import com.djh.condition.WindowsCondition;
 import javafx.stage.Window;
 import org.springframework.context.annotation.*;
@@ -16,7 +19,7 @@ import sun.plugin2.os.windows.Windows;
 @Conditional({WindowsCondition.class})
 @Configuration
 // 导入组件，id默认是组件的全类名
-@Import({Color.class, Red.class})
+@Import({Color.class, Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 public class MainConfig2 {
     @Bean("person")
     // @Scope(value = "prototype")
@@ -38,5 +41,10 @@ public class MainConfig2 {
     @Bean("linus")
     public Person person2(){
         return new Person("linus", 50);
+    }
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
     }
 }
