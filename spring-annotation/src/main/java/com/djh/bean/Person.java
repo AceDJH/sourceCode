@@ -1,11 +1,15 @@
 package com.djh.bean;
 
+import org.springframework.beans.factory.annotation.Value;
+
 /**
  * @Author AceDJH
  * @Date 2021/1/4 17:26
  */
 public class Person {
+    @Value("令狐冲")
     private String name;
+    @Value("#{20 + 8}")
     private Integer age;
 
     public Person() {
