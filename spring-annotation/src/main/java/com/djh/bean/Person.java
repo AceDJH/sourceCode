@@ -11,6 +11,8 @@ public class Person {
     private String name;
     @Value("#{20 + 8}")
     private Integer age;
+    @Value("${person.nickName}")
+    private String nickName;
 
     public Person() {
     }
@@ -41,6 +43,7 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", nickName='" + nickName + '\'' +
                 '}';
     }
 }

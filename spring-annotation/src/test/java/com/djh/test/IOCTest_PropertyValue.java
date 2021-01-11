@@ -18,6 +18,9 @@ public class IOCTest_PropertyValue {
         System.out.println("===============");
         Person person = (Person) applicationContext.getBean("person");
         System.out.println(person);
+
+        String property = applicationContext.getEnvironment().getProperty("person.nickName");
+        System.out.println("property___" + property);
         applicationContext.close();
     }
 
