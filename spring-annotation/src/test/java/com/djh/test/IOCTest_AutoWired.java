@@ -32,6 +32,7 @@ public class IOCTest_AutoWired {
         System.out.println(car);
         Color color = applicationContext.getBean(Color.class);
         System.out.println(color);
+        System.out.println(applicationContext);
         applicationContext.close();
     }
 
