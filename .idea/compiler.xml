@@ -8,10 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-annotation" />
         <module name="serlvet3.0" />
-        <module name="springmvc-annotation" />
+        <module name="mvc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="springmvc" target="8" />
       <module name="springmvc-annotation" target="8" />
     </bytecodeTargetLevel>
   </component>
