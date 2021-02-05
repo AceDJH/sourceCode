@@ -1,4 +1,4 @@
-package com.djh.serlvet3;
+package com.djh.serlvet;
 
 import java.io.*;
 import javax.servlet.http.*;
@@ -10,6 +10,7 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     public void init() {
+        System.out.println("init");
         message = "Hello World!";
     }
 
@@ -22,6 +23,7 @@ public class HelloServlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
+        response.getWriter().write("doGet");
     }
 
     @Override
