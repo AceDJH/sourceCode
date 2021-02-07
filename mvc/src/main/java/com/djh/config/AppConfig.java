@@ -1,12 +1,10 @@
 package com.djh.config;
 
+import com.djh.controller.MyFirstInterceptor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 
 /**
  * @Author AceDJH
@@ -19,8 +17,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 }, useDefaultFilters = false)
 @EnableWebMvc
 public class AppConfig extends WebMvcConfigurerAdapter {
+    // 视图解析器
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp();
+    }
+
+    // 拦截器
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new MyFirstInterceptor()).addPathPatterns("/**");
     }
 }
